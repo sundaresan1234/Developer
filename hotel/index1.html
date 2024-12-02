@@ -1,0 +1,138 @@
+<body>
+    <style>
+      body {
+        background-image: url(res12.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+  
+      .one {
+        text-align: center;
+        color: aliceblue;
+        background-color: rgb(30, 30, 241);
+        border-radius: 10px;
+        border: 2px solid green;
+        padding: 15px;
+      }
+  
+      .container {
+        background-color: rgb(114, 208, 236);
+        width: 700px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 10px;
+      }
+  
+      input {
+        text-align: center;
+        width: 100%;
+        height: 40px;
+        border-radius: 20px;
+        margin-bottom: 15px;
+        padding: 0 15px;
+      }
+  
+      .changebutton {
+        border-radius: 5px;
+        background-color: green;
+        color: aliceblue;
+        padding: 10px 20px;
+        display: block;
+        margin: 20px auto;
+        cursor: pointer;
+      }
+  
+      .selectamount {
+        display: block;
+        width: 50%;
+        margin: 0 auto;
+        padding: 10px;
+        border-radius: 5px;
+      }
+  
+      #output {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: aliceblue;
+        color: black;
+        text-align: center;
+        border-radius: 10px;
+      }
+    </style>
+  
+    <a href="index.html"><button class="px-5 my-2">Back</button></a>
+  
+    <div class="container">
+      <div class="one">
+        <h1>Book now</h1>
+      </div>
+  
+      <form id="bookingForm">
+        <div class="form-group">
+          <input type="text" id="firstName" placeholder="Enter Your First Name" required>
+        </div>
+  
+        <div class="form-group">
+          <input type="text" id="lastName" placeholder="Enter Your Last Name" required>
+        </div>
+  
+        <div class="form-group">
+          <input type="email" id="email" placeholder="Enter Your Email" required>
+        </div>
+  
+        <div class="form-group">
+          <input type="tel" id="phone" placeholder="Enter Your Phone Number" required>
+        </div>
+  
+        <div class="form-group">
+          <input type="text" id="address" placeholder="Enter Your Address" required>
+        </div>
+  
+        <div class="form-group">
+          <select id="amount" class="selectamount" required>
+            <option value="">Select Your Amount</option>
+            <option value="2999">Rs.2999/-</option>
+            <option value="4999">Rs.4999/-</option>
+            <option value="7999">Rs.7999/-</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="changebutton">Continue</button>
+      </form>
+  
+      <!-- Output Div -->
+      <div id="output"></div>
+    </div>
+  
+    <script>
+      // Get the form and output div
+      const form = document.getElementById('bookingForm');
+      const output = document.getElementById('output');
+  
+      // Event listener for form submission
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form from submitting
+  
+        // Get form values
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+        const amount = document.getElementById('amount').value;
+  
+        // Display the output
+        output.innerHTML = `
+          <h3>Booking Details</h3>
+          <p><strong>First Name:</strong> ${firstName}</p>
+          <p><strong>Last Name:</strong> ${lastName}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Address:</strong> ${address}</p>
+          <p><strong>Amount:</strong> Rs.${amount}/-</p>
+        `;
+      });
+    </script>
+  </body>
+  </html>
+  
